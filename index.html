@@ -4,8 +4,24 @@
     <title>Beans</title>
 </head>
 <body>
+    
     <h1>hello world</h1>
     <p>beans</p>
+    
     <input type="text" placeholder="Type something...">
+    <button onclick="saveText()">Save</button>
+    <script>
+    async function saveText() {
+        const text = document.getElementById("textBox").value;
+
+        await fetch("/save", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ text: text })
+        });
+    }
+    </script>
 </body>
 </html>
