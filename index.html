@@ -8,11 +8,11 @@
     <h1>hello world</h1>
     <p>beans</p>
     
-    <input type="text" placeholder="Type something...">
+    <input id="textBox" type="text" placeholder="Type something...">
     <button onclick="saveText()">Save</button>
     <script>
     async function saveText() {
-        const text = document.getElementById("text").value;
+        const text = document.getElementById("textBox").value;
 
         await fetch("/save", {
             method: "POST",
