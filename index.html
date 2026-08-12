@@ -10,17 +10,24 @@
     
     <input id="textBox" type="text" placeholder="Type something...">
     <button onclick="saveText()">Save</button>
+    
     <script>
     async function saveText() {
         const text = document.getElementById("textBox").value;
-
-        await fetch("/save", {
+    
+        const response = await fetch("/save", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ text: text })
         });
+    
+        if (response.ok) {
+            alert("Saved!");
+        } else {
+            alert("Something went wrong.");
+        }
     }
     </script>
 </body>
