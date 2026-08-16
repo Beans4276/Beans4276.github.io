@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Beans</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Text Testing</title>
 </head>
 <body>
     
-    <h1>hello world</h1>
-    <p>beans</p>
+    <h1 class="title">Text Testing</h1>
+    <h2 class="title">By Bean</h2>
+    <p>This is a testing version for a website I want to make</p>
+    <p>Place text here below to save</p>
     
     <input id="textBox" type="text" placeholder="Type something...">
     <button onclick="saveText()">Save</button>
-    
+
     <script>
     async function saveText() {
         const text = document.getElementById("textBox").value;
-    
+
         const response = await fetch("/save", {
             method: "POST",
             headers: {
@@ -22,13 +25,13 @@
             },
             body: JSON.stringify({ text: text })
         });
-    
+
         if (response.ok) {
             alert("Saved!");
         } else {
             alert("Something went wrong.");
         }
     }
-    </script>
+</script>
 </body>
 </html>
